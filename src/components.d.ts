@@ -7,8 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppFooter: typeof import('./components/common/AppFooter.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Navbar1: typeof import('./components/common/Navbar1.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Scrolldown: typeof import('./components/common/Scrolldown.vue')['default']
+    SearchBar: typeof import('./components/common/SearchBar.vue')['default']
+    SidebarMenuHome: typeof import('./components/common/SidebarMenuHome.vue')['default']
+    TeacherBot: typeof import('./components/common/TeacherBot.vue')['default']
   }
 }
