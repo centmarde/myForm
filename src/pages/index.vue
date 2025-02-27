@@ -1,7 +1,15 @@
 <template>
-  hahahah
+  <LayoutWrapper>
+    <template #content>
+      <div>
+       Test
+      </div>
+    </template>
+  </LayoutWrapper>
 </template>
 
-<script lang="ts" setup>
-  //
+
+<script setup>
+import LayoutWrapper from '@/layouts/LayoutWrapper.vue';
+
 </script>
