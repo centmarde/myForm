@@ -12,7 +12,7 @@
           alt="Profile Image"
           v-if="profileImage"
         />
-        <v-icon v-else size="large">mdi-account</v-icon>
+      <!--   <v-icon v-else size="large">mdi-account</v-icon> -->
       </v-avatar>
     </div>
 
@@ -115,7 +115,7 @@
         </v-btn>
       </v-list-item>
 
-      <v-list-item style="padding: 8px; margin-top: 10rem">
+      <!-- <v-list-item style="padding: 8px; margin-top: 10rem">
         <v-btn
           class="justify-center"
           rounded="0"
@@ -134,7 +134,7 @@
             <v-col> Logout </v-col>
           </v-row>
         </v-btn>
-      </v-list-item>
+      </v-list-item> -->
     </v-list>
   </v-navigation-drawer>
 

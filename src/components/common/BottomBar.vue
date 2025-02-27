@@ -25,7 +25,7 @@
         to="/"
         :class="{ 'nav-active': activeTab === 1 }"
       >
-        <v-icon size="22">mdi-qrcode-scan</v-icon>
+        <v-icon size="22">mdi-note-plus-outline</v-icon>
       </v-btn>
     </div>
 
@@ -118,7 +118,7 @@ const primary = computed(() => theme.current.value.colors.primary);
 }
 
 .scan-button.nav-active {
-  background-color: rgb(var(--v-theme-accent)) !important;
+ /*  background-color: rgb(var(--v-theme-accent)) !important; */
   box-shadow: 0 6px 12px rgba(var(--v-theme-primary), 0.3) !important;
 }
 
