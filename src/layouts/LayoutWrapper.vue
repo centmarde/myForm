@@ -26,13 +26,12 @@ const isDarkTheme = computed(() => theme.global.current.value.dark);
 
 <style scoped>
 .v-main {
-  background-color: #8ca189 !important;
   padding-bottom: 62px !important;
   padding-top: 64px !important;
   min-height: 100vh; 
 }
 
 .dark-theme {
-  background: #1e2124 !important;
+  
 }
 </style>

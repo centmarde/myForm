@@ -1,7 +1,7 @@
 <template>
   <v-bottom-navigation
     v-model="activeTab"
-    color="#526E48"
+    :color="primary"
     grow
     class="custom-nav"
     :class="{ 'dark-theme': isDarkTheme }"
@@ -52,6 +52,8 @@ const theme = useTheme();
 const isDarkTheme = computed(() => theme.global.current.value.dark);
 const activeTab = ref(0);
 const isScanActive = ref(false);
+
+const primary = computed(() => theme.current.value.colors.primary);
 </script>
 
 <style scoped>
@@ -61,8 +63,8 @@ const isScanActive = ref(false);
   left: 4px !important;
   right: 4px !important;
   border-radius: 16px !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 1px 6px rgba(82, 110, 72, 0.1) !important;
+  background-color: rgb(var(--v-theme-surface)) !important;
+  box-shadow: 0 1px 6px rgba(var(--v-theme-primary), 0.1) !important;
   height: 58px !important;  /* Reduced height */
   padding: 0 4px !important;  /* Reduced padding */
   width: calc(100% - 8px) !important;  /* Adjusted width */
@@ -74,7 +76,7 @@ const isScanActive = ref(false);
   height: 100% !important;
   border-radius: 12px !important;
   transition: all 0.2s ease;
-  color: #526E48 !important;
+  /* color: rgb(var(--v-theme-accent)) !important; */
   min-width: 40px !important; 
   padding: 0 4px !important;  
 }
@@ -109,15 +111,15 @@ const isScanActive = ref(false);
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   top: 50% !important;
-  color: #526E48 !important;
-  background-color: white !important;
+  /* color: rgb(var(--v-theme-accent)) !important; */
+  background-color: rgb(var(--v-theme-surface)) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   z-index: 101;
 }
 
 .scan-button.nav-active {
-  background-color: #526E48 !important;
-  box-shadow: 0 6px 12px rgba(82, 110, 72, 0.3) !important;
+  background-color: rgb(var(--v-theme-accent)) !important;
+  box-shadow: 0 6px 12px rgba(var(--v-theme-primary), 0.3) !important;
 }
 
 @keyframes pulse {
@@ -183,8 +185,8 @@ const isScanActive = ref(false);
 }
 
 .nav-active {
-  background-color: #526E48 !important;
-  color: white !important;
+  background-color: rgb(var(--v-theme-primary)) !important;
+  color: rgb(var(--v-theme-surface)) !important;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -203,11 +205,11 @@ const isScanActive = ref(false);
 }
 
 .nav-button:hover {
-  box-shadow: 0 2px 4px rgba(82, 110, 72, 0.1) !important;
+  box-shadow: 0 2px 4px rgba(var(--v-theme-primary), 0.1) !important;
 }
 
 .scan-button:hover {
-  box-shadow: 0 2px 4px rgba(82, 110, 72, 0.1) !important;
+  box-shadow: 0 2px 4px rgba(var(--v-theme-primary), 0.1) !important;
 }
 
 .scan-button.nav-active .v-icon {

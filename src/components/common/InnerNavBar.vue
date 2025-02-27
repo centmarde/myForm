@@ -2,6 +2,7 @@
   <v-navigation-drawer
     v-model="drawer"
     :location="$vuetify.display.mobile ? 'left' : 'left'"
+  
     temporary
   >
     <div class="text-center pt-8">
@@ -32,7 +33,7 @@
         </v-btn>
       </v-list-item>
 
-      <v-list-item style="padding: 8px">
+     <!--  <v-list-item style="padding: 8px">
         <v-btn
           class="justify-start"
           rounded="0"
@@ -51,7 +52,7 @@
             <v-col> Theme </v-col>
           </v-row>
         </v-btn>
-      </v-list-item>
+      </v-list-item> -->
 
       <v-list-item style="padding: 8px">
         <v-btn
@@ -139,18 +140,17 @@
 
   <v-app-bar
     class="navbar"
-    :color="isDarkTheme ? 'dark-navbar' : 'light-navbar'"
+    :color="surface"
     style="height: 70px"
   >
-  <v-app-bar-nav-icon
-  variant="text"
-  @click.stop="drawer = !drawer"
-  class="large-icon mx-5"
-></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon
+      variant="text"
+      @click.stop="drawer = !drawer"
+      class="large-icon mx-5"
+      :color="primary"
+    ></v-app-bar-nav-icon>
 
-
-
-    <div class="title">My Form</div>
+    <div class="title" :style="{ color: primary }">My Form</div>
 
     <v-spacer></v-spacer>
 
@@ -188,6 +188,10 @@ const currentLogo = computed(() =>
   isDarkTheme.value ? darkLogo : lightLogo
 );
 
+const primary = computed(() => theme.current.value.colors.primary);
+const surface = computed(() => theme.current.value.colors.surface);
+const background = computed(() => theme.current.value.colors.background);
+
 function toggleTheme() {
   const newTheme = isDarkTheme.value ? "light" : "dark";
   theme.global.name.value = newTheme;
@@ -210,15 +214,28 @@ onMounted(async () => {
 
 <style scoped>
 .bg-card {
-  background: rgba(161, 205, 247, 0.15);
-  box-shadow: 0 4px 10px rgba(254, 79, 90, 0.3);
+  background: rgb(var(--v-theme-surface)) !important;
+  box-shadow: 0 4px 10px rgba(var(--v-theme-primary), 0.3);
   backdrop-filter: blur(5px);
+}
+
+.v-btn {
+  color: rgb(var(--v-theme-primary)) !important;
+}
+
+.v-btn:hover {
+  background-color: rgba(var(--v-theme-primary), 0.1) !important;
+}
+
+.v-icon {
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .title {
   font-family: "Montserrat", sans-serif !important;
   font-weight: 900;
   margin-left: 0;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .logo {
@@ -245,6 +262,7 @@ onMounted(async () => {
   .navbar {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    background-color: rgb(var(--v-theme-surface)) !important;
   }
 }
 </style>
